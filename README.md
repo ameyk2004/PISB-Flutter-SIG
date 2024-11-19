@@ -35,11 +35,11 @@ The app allows users to:
 - Specify the Flutter SDK Path (if not pre-configured).
 - Select the desired Platform Channels (Android/iOS).
 
-### 3. Finish Project Setup
+3. Finish Project Setup
    Click Finish.
    Wait for Android Studio to create the project and set up dependencies.
 
-## Flutter Project Directory Structure
+# Flutter Project Directory Structure
 
 When you create a Flutter project, it generates a basic folder structure. Here's an overview of the important directories and files in a Flutter project:
 
@@ -146,4 +146,61 @@ medicine_finder_app/
 │
 ├── pubspec.yaml            # Dependencies and project configuration
 ├── .gitignore              # Files to ignore in Git
+
+```
+---
+
+## Stateless vs Stateful Widgets
+
+## **Stateless Widget**
+- **Definition**: A widget that does not change its state after it is built.
+- **When to use**: Use when the UI doesn't change dynamically based on user interaction or external events.
+- **Example**: Text, Icon, Image.
+
+---
+
+### **Stateful Widget**
+- **Definition**: A widget that can change its state during the lifetime of the widget. The UI updates when the state changes.
+- **When to use**: Use when the UI needs to change dynamically based on user input, animation, or data.
+- **Example**: Forms, Buttons, Checkboxes.
+
+---
+
+### **Key Differences**:
+- **StatelessWidget**: Cannot rebuild its UI (immutable).
+- **StatefulWidget**: Can rebuild its UI when the state changes.
+
+---
+
+### **Flutter Docs Links**:
+- [StatelessWidget](https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html)
+- [StatefulWidget](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html)
+
+
+## Flutter Widget Hierarchy: MaterialApp → Scaffold → Body
+
+### **1. MaterialApp**
+- **Definition**: The top-level widget for Flutter applications that provides material design visuals, themes, routing, and more.
+- **Purpose**: It is the root of the widget tree and wraps the entire app, providing essential configurations like themes, navigation, and accessibility.
+- **Usage**: The `MaterialApp` widget is where you define your app's routes, themes, and navigation.
+
+### **2. Scaffold**
+- **Definition**: A layout structure for the app that provides an app bar, body, floating action button, bottom navigation bar, and other components.
+- **Purpose**: It is the basic visual layout structure of a material app. It holds the main UI elements like the app bar, drawer, body, etc.
+- **Usage**: The `Scaffold` widget is where you place most of your UI elements within a typical app screen.
+
+### **3. Body**
+- **Definition**: The main content area of a `Scaffold`, where the UI elements and widgets are displayed.
+- **Purpose**: The body contains the primary content of the screen, which can be composed of various widgets (e.g., `Text`, `Column`, `Row`, `ListView`).
+- **Usage**: The `body` can be any widget or widget tree that will be displayed in the center of the screen.
+
+#### **Widget Hierarchy Overview**:
+1. **MaterialApp**: Top-level configuration for your app, setting up themes, routing, etc.
+2. **Scaffold**: Provides the basic layout structure, including app bars, drawers, and the body.
+3. **Body**: The main content area inside `Scaffold` where UI elements are placed.
+
+
+### **Flutter Docs Links**:
+- [MaterialApp](https://api.flutter.dev/flutter/widgets/MaterialApp-class.html)
+- [Scaffold](https://api.flutter.dev/flutter/material/Scaffold-class.html)
 
