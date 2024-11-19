@@ -298,3 +298,98 @@ flutter:
 - [Padding](https://api.flutter.dev/flutter/widgets/Padding-class.html)
 - [ListView](https://api.flutter.dev/flutter/widgets/ListView-class.html)
 - [ListView.builder](https://api.flutter.dev/flutter/widgets/ListView/ListView.builder.html)
+
+---
+
+## API Calling in Flutter Using HTTP Package
+
+### **1. Setting Up HTTP Package**
+To make API calls in Flutter, you'll need to use the `http` package. To add it to your project, follow these steps:
+
+1. Add the `http` package to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.14.0
+```
+
+2. Run the command to install the package:
+```bash
+flutter pub get
+```
+
+---
+
+### **2. Making a GET Request**
+
+A `GET` request is used to fetch data from an API. Here's an example of how to make a simple `GET` request:
+
+### **Example (GET request)**:
+```dart
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+Future<void> fetchData() async {
+  final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+
+  if (response.statusCode == 200) {
+    // If the server returns a 200 OK response, parse the JSON data
+    List<dynamic> data = json.decode(response.body);
+    print(data);
+  } else {
+    // If the server does not return a 200 OK response, throw an error
+    throw Exception('Failed to load data');
+  }
+}
+```
+
+In this example, we send a `GET` request to fetch posts from a placeholder API (`jsonplaceholder.typicode.com`). We then check the response status code and decode the response body.
+
+---
+
+### **3. Making a POST Request**
+
+A `POST` request is used to send data to an API. Here's an example of how to make a simple `POST` request:
+
+#### **Example (POST request)**:
+```dart
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+Future<void> postData() async {
+  final url = Uri.parse('https://jsonplaceholder.typicode.com/posts');
+  final response = await http.post(
+    url,
+    headers: {"Content-Type": "application/json"},
+    body: json.encode({
+      'title': 'foo',
+      'body': 'bar',
+      'userId': 1,
+    }),
+  );
+
+  if (response.statusCode == 201) {
+    // If the server returns a 201 CREATED response, handle the response
+    print('Data posted successfully');
+  } else {
+    // If the server returns an error, throw an exception
+    throw Exception('Failed to post data');
+  }
+}
+```
+
+In this example, we send a `POST` request with JSON data to create a new post. We use the `json.encode()` method to convert the body into JSON format, set the headers, and handle the response.
+
+---
+
+## **4. Common Errors**
+- **Timeout**: Sometimes, an API request can take too long. You can use `http.Client` to set a timeout duration.
+- **Invalid JSON**: Ensure the API returns valid JSON if you're using `json.decode()`.
+
+---
+
+### **Flutter Docs Links**:
+- [HTTP Package](https://pub.dev/packages/http)
+- [Making HTTP Requests](https://flutter.dev/docs/cookbook/networking/fetch-data)
