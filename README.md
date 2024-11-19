@@ -35,11 +35,11 @@ The app allows users to:
 - Specify the Flutter SDK Path (if not pre-configured).
 - Select the desired Platform Channels (Android/iOS).
 
-3. Finish Project Setup
+### 3. Finish Project Setup
    Click Finish.
    Wait for Android Studio to create the project and set up dependencies.
 
-# Flutter Project Directory Structure
+## Flutter Project Directory Structure
 
 When you create a Flutter project, it generates a basic folder structure. Here's an overview of the important directories and files in a Flutter project:
 
