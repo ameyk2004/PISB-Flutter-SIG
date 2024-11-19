@@ -1,17 +1,14 @@
-# medicine_finder_pisb
+# PISB Flutter SIG - Medicine Finder App 🌟
 
-A new Flutter project.
+Welcome to the official repository for the PISB Flutter SIG! This project serves as a comprehensive introduction to Flutter development, where participants build a practical Medicine Finder App from scratch.
 
-## Getting Started
+The app allows users to:
 
-This project is a starting point for a Flutter application.
+- **Search for Medicines**: Enter a medicine name and fetch detailed information like usage, side effects, dosage, and pricing using external APIs.
+- **User Authentication**: Implement a basic login and logout system.
+- **Interactive UI**: Learn Flutter widgets, navigation, state management, and Material Design principles.
+  This repository contains:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# PISB-Flutter-SIG
+- Step-by-step Code: Designed for beginners, with modular components for easy understanding.
+- API Integration: Uses free APIs (OpenFDA) to demonstrate real-world data fetching.
+- Documentation: Includes guidance for setting up the app and learning core Flutter concepts.
