@@ -212,7 +212,7 @@ medicine_finder_app/
 
 ## Flow of App we have to create and the design
 
-Add Photos
+<img src="flow_diagram.png">
 
 ## Flutter Widgets: AppBar, Column, and Text
 
