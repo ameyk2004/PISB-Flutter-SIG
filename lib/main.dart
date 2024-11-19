@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medicine_finder_pisb/home_page.dart';
+import 'package:medicine_finder_pisb/screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
