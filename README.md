@@ -17,6 +17,12 @@ The app allows users to:
 ## Contents
 
 - [Project Setup](#project-setup-in-android-studio)
+- [Flutter Project Directory Structure](#flutter-project-firectory-structure)
+- [Stateless vs Stateful Widgets](#stateless-vs-stateful-widgets)
+- [Flutter Widget Hierarchy](#flutter-widget-hierarchy)
+- [API Calling in Flutter Using HTTP Package](#api-calling-in-flutter-using-http-package)
+- [Navigator in Flutter](#navigator-in-flutter)
+- [Inkwell and GestureDetector in Flutter](#inkwell-and-gestureDetector-in-flutter)
 
 ---
 
@@ -177,7 +183,7 @@ medicine_finder_app/
 - [StatefulWidget](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html)
 
 
-## Flutter Widget Hierarchy: MaterialApp → Scaffold → Body
+## Flutter Widget Hierarchy
 
 ### **1. MaterialApp**
 - **Definition**: The top-level widget for Flutter applications that provides material design visuals, themes, routing, and more.
@@ -393,3 +399,156 @@ In this example, we send a `POST` request with JSON data to create a new post. W
 ### **Flutter Docs Links**:
 - [HTTP Package](https://pub.dev/packages/http)
 - [Making HTTP Requests](https://flutter.dev/docs/cookbook/networking/fetch-data)
+
+
+
+## Navigator in Flutter
+
+### **Navigator Overview**
+
+In Flutter, `Navigator` is used to manage the navigation stack of your app. Each screen (or "route") is like a page on the stack, and you can push new screens onto the stack or pop screens off it.
+
+---
+
+### **1. Navigator.push**
+This method is used to navigate to a new screen by pushing it onto the stack.
+
+- **When to use?**
+    - When you want to open a new page or screen.
+
+- **Behavior**:
+    - The new page is placed on top of the current page.
+    - The user can return to the previous page using `Navigator.pop`.
+
+- **Syntax**:
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => NewScreen()),
+);
+```
+
+---
+
+### **2. Navigator.pop**
+This method is used to remove the top-most screen from the stack, effectively going back to the previous screen.
+
+- **When to use?**
+    - When you want to return to the previous screen.
+
+- **Behavior**:
+    - Removes the current screen from the stack.
+    - If it's the last screen in the stack, the app will close.
+
+- **Syntax**:
+```dart
+Navigator.pop(context);
+```
+
+---
+
+### **3. Navigator.pushReplacement**
+This method replaces the current screen with a new one, removing the previous screen from the stack.
+
+- **When to use?**
+    - When you want to navigate to a new page and prevent users from going back to the previous page (e.g., after login or logout).
+
+- **Behavior**:
+    - Replaces the current page with the new page.
+    - The previous page is removed from the stack.
+
+- **Syntax**:
+```dart
+Navigator.pushReplacement(
+  context,
+  MaterialPageRoute(builder: (context) => NewScreen()),
+);
+```
+
+---
+
+### **MaterialPageRoute**
+`MaterialPageRoute` is a common way to define the route for navigating between screens. It takes a `builder` parameter that specifies the widget (screen) to display.
+
+- **Syntax**:
+```dart
+MaterialPageRoute(
+  builder: (BuildContext context) => NewScreen(),
+);
+```
+
+---
+
+### **Comparison of Methods**
+
+| Method                   | Behavior                                  | Use Case                              |
+|--------------------------|-------------------------------------------|---------------------------------------|
+| **Navigator.push**       | Adds a new screen to the stack            | Navigate to a new screen.            |
+| **Navigator.pop**        | Removes the top-most screen from the stack | Go back to the previous screen.       |
+| **Navigator.pushReplacement** | Replaces the current screen with a new one | Navigate without allowing back navigation. |
+
+---
+
+## **Flutter Docs Links**:
+- [Navigator Class](https://api.flutter.dev/flutter/widgets/Navigator-class.html)
+- [MaterialPageRoute](https://api.flutter.dev/flutter/material/MaterialPageRoute-class.html)
+
+## Inkwell and GestureDetector in Flutter
+
+Flutter provides two primary widgets for handling user gestures: **Inkwell** and **GestureDetector**. These widgets enable interaction with UI elements.
+
+---
+
+### **1. Inkwell**
+- **Purpose**:
+    - Adds a ripple effect when the user interacts with a widget.
+    - Commonly used for creating buttons or clickable UI components with visual feedback.
+
+- **Features**:
+    - Comes with built-in ripple (ink splash) animation.
+    - Supports a wide variety of gestures (e.g., tap, double-tap, long press).
+
+- **Use Case**:
+    - Use `Inkwell` when you need visual feedback for user interaction.
+
+- **Key Properties**:
+    - `onTap`: Callback when the widget is tapped.
+    - `onDoubleTap`: Callback when the widget is double-tapped.
+    - `onLongPress`: Callback for a long press.
+
+- **Flutter Docs**:
+    - [Inkwell Documentation](https://api.flutter.dev/flutter/material/InkWell-class.html)
+
+---
+
+### **2. GestureDetector**
+- **Purpose**:
+    - Detects gestures without providing any visual feedback.
+    - A flexible and lightweight widget for custom gesture handling.
+
+- **Features**:
+    - Detects a wide range of gestures like tap, drag, scale, and more.
+    - Does not include built-in animations or effects.
+
+- **Use Case**:
+    - Use `GestureDetector` when you need gesture handling without visual effects.
+
+- **Key Properties**:
+    - `onTap`: Callback when the widget is tapped.
+    - `onPanUpdate`: Callback for detecting drag gestures.
+    - `onScaleUpdate`: Callback for detecting scaling gestures.
+
+- **Flutter Docs**:
+    - [GestureDetector Documentation](https://api.flutter.dev/flutter/widgets/GestureDetector-class.html)
+
+---
+
+### **Comparison of Inkwell and GestureDetector**
+
+| Feature                   | Inkwell                      | GestureDetector                 |
+|---------------------------|------------------------------|----------------------------------|
+| **Visual Feedback**       | Yes (Ripple effect)          | No                              |
+| **Gesture Support**       | Basic (tap, long press)      | Advanced (drag, scale, etc.)    |
+| **Use Case**              | Buttons, clickable widgets   | Custom gestures and interactions|
+
+
