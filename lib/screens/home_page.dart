@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:medicine_finder_pisb/screens/medicine_details_page.dart';
 import 'package:medicine_finder_pisb/services/api_service.dart';
+import 'package:medicine_finder_pisb/utils/app_images.dart';
 import 'package:medicine_finder_pisb/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -62,23 +63,20 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   width: double.infinity,
                   child: Image(
-                    image: NetworkImage(
-                        "https://www.netmeds.com/images/cms/offers/1634305647_Mobile_Push-weeked-kareena.jpg"),
+                    image: NetworkImage(AppImages.carouselImage1),
                     fit: BoxFit.cover,
                   ),
                 ),
                 Container(
                   width: double.infinity,
                   child: Image(
-                      image: NetworkImage(
-                          "https://newspaperads.ads2publish.com/wp-content/uploads/2018/05/netmeds-com-india-ka-rakhe-khayaal-india-ki-pharmacy-ad-bombay-times-17-05-2018.png"),
+                      image: NetworkImage(AppImages.carouselImage2),
                       fit: BoxFit.cover),
                 ),
                 Container(
                   width: double.infinity,
                   child: Image(
-                      image: NetworkImage(
-                          "https://newspaperads.ads2publish.com/wp-content/uploads/2019/01/netmeds-com-har-ghar-mein-mahi-har-ghar-mein-netmeds-ad-times-of-india-mumbai-22-01-2019.png"),
+                      image: NetworkImage(AppImages.carouselImage3),
                       fit: BoxFit.cover),
                 ),
               ],
@@ -113,14 +111,12 @@ class _HomePageState extends State<HomePage> {
                 hintText: "Search Medicines",
                 prefixIcon: Icon(Icons.search),
                 focusedBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: primaryColor, width: 2),
-    borderRadius: BorderRadius.circular(10),
-
-    ),
+                  borderSide: BorderSide(color: primaryColor, width: 2),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: primaryColor),
                   borderRadius: BorderRadius.circular(10),
-
                 ),
               ),
             ),
@@ -132,7 +128,9 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   child: InkWell(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => MedicineDetailsPage(product_data: filteredResults[index])));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => MedicineDetailsPage(
+                              product_data: filteredResults[index])));
                     },
                     child: Container(
                       height: 100,
@@ -159,7 +157,9 @@ class _HomePageState extends State<HomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    (filteredResults[index]["openfda"]["generic_name"][0]).toString(),
+                                    (filteredResults[index]["openfda"]
+                                            ["generic_name"][0])
+                                        .toString(),
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
@@ -170,11 +170,18 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   SizedBox(height: 8),
                                   Text(
-                                    (filteredResults[index]["openfda"]["product_type"]?[0] ?? "N/A").toString(),
-                                    style: TextStyle(fontWeight: FontWeight.w500),
+                                    (filteredResults[index]["openfda"]
+                                                ["product_type"]?[0] ??
+                                            "N/A")
+                                        .toString(),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.w500),
                                   ),
                                   Text(
-                                    (filteredResults[index]["openfda"]["substance_name"]?[0] ?? "N/A").toString(),
+                                    (filteredResults[index]["openfda"]
+                                                ["substance_name"]?[0] ??
+                                            "N/A")
+                                        .toString(),
                                   ),
                                 ],
                               ),
